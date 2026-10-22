@@ -1,10 +1,10 @@
 import mysql.connector
 
-def iniciar_conexão ():
+def iniciar_conexao():
 
-  return mysql.conector.conectar (​
-  host = "localhost" ,
-  usuário = "root" ,
-  senha = "" ,
-  database = ""
+  return mysql.connector.connect(
+  host = "sql201.infinityfree.com:3306" ,
+  usuário = "if0_43244066" ,
+  senha = "vBEPgun9iArZ" ,
+  database = "if0_43244066_produtos"
  )
