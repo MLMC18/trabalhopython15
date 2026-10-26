@@ -5,10 +5,10 @@ from decimal import Decimal, InvalidOperation
 
 # Configuração da base de dados
 CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "A_TUA_PASSWORD",
-    "database": "loja_db"
+    "host": "gateway01.ap-northeast-1.prod.aws.tidbcloud.com" ,
+    "user": "2KQqXB3M53HDBbJ.root",
+    "password": "ikBTU35jXuSldNNr",
+    "database": "modulo15"
 }
 
 LIMITE_STOCK_BAIXO = 5
