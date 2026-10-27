@@ -25,7 +25,7 @@ def menu():
     print("2 - Registar conta")
     print("3 - Consultar produtos")
     print("4 - Comprar produto")
-    print("0 - Sair")
+    print("5 - Sair")
 
 
 if __name__ == "__main__":
