@@ -1,4 +1,3 @@
-
 import mysql.connector
 
 from connect import iniciar_conexao
@@ -15,14 +14,18 @@ class Produto:
     def adicionar(self):
         db = iniciar_conexao()
         cursor = db.cursor()
-        cursor.execute(
-            """INSERT INTO produtos (nome, descricao, preco, quantidade)
-               VALUES (%s, %s, %s, %s)""",
-            (self.nome, self.descricao, self.preco, self.quantidade)
-        )
-        db.commit()
-        db.close()
-        print("Produto adicionado!")
+        try:
+            cursor.execute(
+                """INSERT INTO produtos (nome, descricao, preco, quantidade)
+                   VALUES (%s, %s, %s, %s)""",
+                (self.nome, self.descricao, self.preco, self.quantidade)
+            )
+            db.commit()
+            print("Produto adicionado!")
+        except mysql.connector.Error as erro:
+            print(f"ERRO DO MYSQL: {erro}")
+        finally:
+            db.close()
 
     def atualizar(self):
         db = iniciar_conexao()
@@ -81,7 +84,7 @@ def menu():
         if op == "1":
             nome = input("Nome: ")
             descricao = input("Descrição: ")
-            preco = float(input("Preço: "))
+            preco = float(input("Preço: ") .replace(",", "."))
             quantidade = int(input("Quantidade: "))
             Produto(nome, descricao, preco, quantidade).adicionar()
 
