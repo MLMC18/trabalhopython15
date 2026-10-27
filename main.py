@@ -13,7 +13,7 @@ class Produto:
         self.quantidade = quantidade
 
     def adicionar(self):
-        db = conectar()
+        db = iniciar_conexao()
         cursor = db.cursor()
         cursor.execute(
             """INSERT INTO produtos (nome, descricao, preco, quantidade)
@@ -25,7 +25,7 @@ class Produto:
         print("Produto adicionado!")
 
     def atualizar(self):
-        db = conectar()
+        db = iniciar_conexao()
         cursor = db.cursor()
         cursor.execute(
             """UPDATE produtos
@@ -40,7 +40,7 @@ class Produto:
 
     @staticmethod
     def remover(id):
-        db = conectar()
+        db = iniciar_conexao()
         cursor = db.cursor()
         cursor.execute("DELETE FROM produtos WHERE id=%s", (id,))
         db.commit()
@@ -49,7 +49,7 @@ class Produto:
 
     @staticmethod
     def listar(filtro=""):
-        db = conectar()
+        db = iniciar_conexao()
         cursor = db.cursor()
         cursor.execute(
             "SELECT * FROM produtos WHERE nome LIKE %s",
