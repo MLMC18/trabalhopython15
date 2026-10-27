@@ -1,12 +1,10 @@
 from connect import iniciar_conexao
-import mysql.connector
 
-
-mydb = start_connection()
+mydb = iniciar_conexao()
 
 mycursor = mydb.cursor()
 
-mycursor.execute("CREATE TABLE Utilizadores (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), senha VARCHAR(255), tipo_utilizadorENUM('admin', 'vendedor', 'cliente') NOT NULL))")
+mycursor.execute("CREATE TABLE Utilizadores (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255), senha VARCHAR(255), tipo_utilizador ENUM('admin', 'vendedor', 'cliente') NOT NULL)")
 
 mycursor.execute("CREATE TABLE Produtos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), categoria VARCHAR(255), preço DECIMAL(10,2), stock INT NOT NULL, descriçao TEXT)")
 
