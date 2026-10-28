@@ -6,5 +6,8 @@ def iniciar_conexao():
   host = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com",
   user = "2KQqXb3M53HDBbJ.root",
   password = "ikBTU35jXuSldNNr",
-  database = "modulo15"
+  database = "modulo15",
+  PORTA = 4000,
+  ssl ={"ssl": True}
  )
+
