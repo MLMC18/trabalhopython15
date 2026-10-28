@@ -2,7 +2,7 @@ import socket
 import json
 import struct
 
-HOST = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com"
+HOST = "192.168.2.32"
 PORTA = 4000
 
 
