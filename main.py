@@ -4,11 +4,11 @@ from connect import iniciar_conexao
 
 
 class Produto:
-    def __init__(self, nome, descricao, preco, quantidade, id=None):
+    def __init__(self, nome, descriçao, preço, quantidade, id=None):
         self.id = id
         self.nome = nome
-        self.descricao = descricao
-        self.preco = preco
+        self.descriçao = descriçao
+        self.preço = preço
         self.quantidade = quantidade
 
     def adicionar(self):
@@ -16,9 +16,9 @@ class Produto:
         cursor = db.cursor()
         try:
             cursor.execute(
-                """INSERT INTO produtos (nome, descricao, preco, quantidade)
+                """INSERT INTO produtos (nome, descriçao, preço, quantidade)
                    VALUES (%s, %s, %s, %s)""",
-                (self.nome, self.descricao, self.preco, self.quantidade)
+                (self.nome, self.descriçao, self.preço, self.quantidade)
             )
             db.commit()
             print("Produto adicionado!")
@@ -32,9 +32,9 @@ class Produto:
         cursor = db.cursor()
         cursor.execute(
             """UPDATE produtos
-               SET nome=%s, descricao=%s, preco=%s, quantidade=%s
+               SET nome=%s, descriçao=%s, preço=%s, quantidade=%s
                WHERE id=%s""",
-            (self.nome, self.descricao, self.preco,
+            (self.nome, self.descriçao, self.preço,
              self.quantidade, self.id)
         )
         db.commit()
@@ -83,10 +83,10 @@ def menu():
 
         if op == "1":
             nome = input("Nome: ")
-            descricao = input("Descrição: ")
-            preco = float(input("Preço: ") .replace(",", "."))
+            descriçao = input("Descrição: ")
+            preço = float(input("Preço: ") .replace(",", "."))
             quantidade = int(input("Quantidade: "))
-            Produto(nome, descricao, preco, quantidade).adicionar()
+            Produto(nome, descriçao, preço, quantidade).adicionar()
 
         elif op == "2":
             Produto.listar()
@@ -97,10 +97,10 @@ def menu():
         elif op == "4":
             id = int(input("ID: "))
             nome = input("Novo nome: ")
-            descricao = input("Nova descrição: ")
-            preco = float(input("Novo preço: "))
+            descriçao = input("Nova descrição: ")
+            preço = float(input("Novo preço: "))
             quantidade = int(input("Nova quantidade: "))
-            Produto(nome, descricao, preco, quantidade, id).atualizar()
+            Produto(nome, descriçao, preço, quantidade, id).atualizar()
 
         elif op == "5":
             Produto.remover(int(input("ID a remover: ")))
