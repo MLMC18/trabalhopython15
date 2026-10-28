@@ -5,7 +5,7 @@ import mysql.connector
 from decimal import Decimal
 from connect import iniciar_conexao
 
-HOST = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com"
+HOST = "127.0.0.1"
 PORTA = 4000
 
 
