@@ -146,7 +146,6 @@ def registar_venda(utilizador):
         print("Total:", resultado["valor_total"], "euros")
 
 
-
 def menu():
     utilizador = None
 

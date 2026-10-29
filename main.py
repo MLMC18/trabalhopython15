@@ -62,7 +62,7 @@ class Produto:
 
         for p in produtos:
             print(p)
-            if p[4] < 5:
+            if p[5] < 5:
                 print(f"ALERTA: Stock baixo de {p[1]} ({p[4]} unidades)")
 
         db.close()
@@ -90,7 +90,7 @@ def menu():
 
         elif op == "2":
             Produto.listar()
-
+        
         elif op == "3":
             Produto.listar(input("Nome a pesquisar: "))
 
@@ -98,7 +98,7 @@ def menu():
             id = int(input("ID: "))
             nome = input("Novo nome: ")
             descriçao = input("Nova descrição: ")
-            preço = float(input("Novo preço: "))
+            preço = float(input("novo preço: ") .replace(",", "."))
             quantidade = int(input("Nova quantidade: "))
             Produto(nome, descriçao, preço, quantidade, id).atualizar()
 
@@ -114,3 +114,6 @@ def menu():
 
 if __name__ == "__main__":
     menu()
+
+
+
