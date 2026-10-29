@@ -8,6 +8,5 @@ def iniciar_conexao():
   password = "ikBTU35jXuSldNNr",
   database = "modulo15",
   port = 4000,
-  ssl ={"ssl": True}
- )
+  )
 
